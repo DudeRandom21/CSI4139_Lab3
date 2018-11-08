@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac32cf54-7141-4b69-8dd3-3e3fd7e5f6be" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Part2/Virus definition file.txt" afterPath="$PROJECT_DIR$/Part2/Virus definition file.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Part2/QuarantineFolder/test.txt" />
+      <change beforePath="$PROJECT_DIR$/Part2/Virus definition file.txt" afterPath="$PROJECT_DIR$/Part2/VirusDefinitionFile.txt" />
       <change beforePath="$PROJECT_DIR$/Part2/antivirus.py" afterPath="$PROJECT_DIR$/Part2/antivirus.py" />
+      <change beforePath="$PROJECT_DIR$/Part2/eicar.com" afterPath="$PROJECT_DIR$/Part2/eicar.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,28 +22,8 @@
       <file leaf-file-name="antivirus.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Part2/antivirus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eicar.com" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Part2/eicar.com">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Virus definition file.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Part2/Virus definition file.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="68" lean-forward="false" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+            <state relative-caret-position="363">
+              <caret line="126" column="0" lean-forward="true" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -224,8 +204,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Part2/antivirus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="363">
+          <caret line="126" column="0" lean-forward="true" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding />
         </state>
       </provider>
