@@ -23,9 +23,29 @@ class Anti_virus(object):
 	@returns a tuple of filename and the integer offset of 
 	the start of infected sequence'''
 	def check_file(self, filename):
+		contence = []
+		with open(filename, "rb") as file:
 
+			byte = b'0'
+			bytes = []
+			while byte != b'':
+				bytes.append(byte)
+				byte = file.read(1);
+			bytes = bytes[1:-1]
 
-		pass
+			contence = self._convert_to_offset(bytes)
+			print(self.offset_defs)
+			print(contence)
+
+		for definition in self.offset_defs:
+			i = 0
+			for i in range(len(contence)-len(definition)):
+				for j in range(len(definition)):
+					if contence[i+j] != definition[j]:
+						break
+				else:
+					print(filename, i)
+					return (filename, i)
 
 
 	'''set the first 8 bytes of the sequence to "xxxxxxxx", then
