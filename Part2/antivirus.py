@@ -1,12 +1,14 @@
 import os
 import shutil
+import glob
+
 class Anti_virus(object):
 	
 	'''this is basically the UI, prompt the user for a virus
 	definition file, a directory to scan and call the appropriate
 	methods'''
 	def __init__(self):
-		pass
+		self.offset_defs = [[1,1,1]]  #added this cause python was complaining
 	
 	'''open the file passed and read all the definitions, then
 	save them to the self.offset_defs variable. '''
@@ -15,8 +17,13 @@ class Anti_virus(object):
 
 	'''gets files in dir recursively and run check_file on each,
 	then if a bad file is returned runs nullify_and_quarantine'''
-	def check_dir(self, dir):
-		pass
+	def check_dir(self, directory):
+		files = glob.glob(directory + '/**/*.*', recursive=True)
+		
+		for file in files:
+			output = self.check_file(file)
+			if output != None:
+				self.nullify_and_quarantine(output[0], output[1])
 
 	'''read the file and run _convert_to_offset then compare
 	the output with self.offset_defs.
@@ -35,8 +42,6 @@ class Anti_virus(object):
 			bytes = bytes[1:-1]
 
 			contence = self._convert_to_offset(bytes)
-			print(self.offset_defs)
-			print(contence)
 
 		for definition in self.offset_defs:
 			i = 0
@@ -45,7 +50,6 @@ class Anti_virus(object):
 					if contence[i+j] != definition[j]:
 						break
 				else:
-					print(filename, i)
 					return (filename, i)
 
 
@@ -72,7 +76,8 @@ class Anti_virus(object):
 			#replace file contents with new data containing sequence of x's
 			myFile.write(newData)
 
-		shutil.move(filename, "QuarantineFolder/"+filename)
+		short_filename = filename.split('/')[-1]
+		shutil.move(filename, "QuarantineFolder/"+short_filename)
 		print("File moved to Quarantine File")
 
 		myFile.close
@@ -98,14 +103,10 @@ class Anti_virus(object):
 		return offsets
 
 
-
-
-
 def main():
 	test = Anti_virus();
-	test.nullify_and_quarantine("eicar.txt",10)
+	test.check_dir("Test Files")
 
 
 if __name__ == "__main__":
 	main()
-
