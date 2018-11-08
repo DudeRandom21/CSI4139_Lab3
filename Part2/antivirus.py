@@ -1,4 +1,5 @@
 import os
+import shutil
 class Anti_virus(object):
 	
 	'''this is basically the UI, prompt the user for a virus
@@ -36,16 +37,28 @@ class Anti_virus(object):
 		with open(filename, 'r') as myFile:
 			data = myFile.read()
 
-		#print(data)
 		dataList = list(data)
 		for i in range(first_byte_index, first_byte_index+8):
 			dataList[i] = "x"
 
-		newData = ''.join(dataList);
-		#print(newData)
+		newData = ''.join(dataList)
 
 
-		pass
+		with open(filename, 'a') as myFile:
+			# delete file contents
+			myFile.seek(0)
+			myFile.truncate()
+
+			#replace file contents with new data containing sequence of x's
+			myFile.write(newData)
+
+		shutil.move(filename, "QuarantineFolder/"+filename)
+		print("File moved to Quarantine File")
+
+		myFile.close
+
+
+
 
 
 	'''convert an array of bytes into an array of integer offsets.
@@ -63,3 +76,17 @@ class Anti_virus(object):
 			prevByte = byte
 		offsets = offsets[1:]
 		return offsets
+
+
+
+
+
+def main():
+	test = Anti_virus();
+	test.nullify_and_quarantine("eicar.txt",10)
+
+
+if __name__ == "__main__":
+	main()
+
+
