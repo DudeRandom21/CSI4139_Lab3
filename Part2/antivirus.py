@@ -35,4 +35,11 @@ class Anti_virus(object):
 
 	@returns a list of integer offsets'''
 	def _convert_to_offset(self, bytes):
-		pass
+		prevByte = 0;
+		offsets = []
+
+		for byte in bytes:
+			byte = int.from_bytes(byte, "big")
+			offsets.append(byte-prevByte)
+			prevByte = byte
+		offsets = offsets[1:]
