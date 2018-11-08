@@ -3,7 +3,6 @@ import shutil
 import glob
 
 class Anti_virus(object):
-	
 	'''this is basically the UI, prompt the user for a virus
 	definition file, a directory to scan and call the appropriate
 	methods'''
@@ -13,7 +12,24 @@ class Anti_virus(object):
 	'''open the file passed and read all the definitions, then
 	save them to the self.offset_defs variable. '''
 	def read_definitions(self, filename):
-		self.offset_defs
+		file = open(filename, 'rb')
+		byteList = list()
+		lineList = list()
+		ofsetList = list()
+
+		for line in file:
+			lineL = line.__len__()
+
+			byteList = list()
+
+			for x in range(0, lineL):
+				byteList.append(line[x])
+
+			lineList.append(byteList)
+
+		for objects in lineList:
+			print(objects)
+			ofsetList.append(self._convert_to_offset(objects))
 
 	'''gets files in dir recursively and run check_file on each,
 	then if a bad file is returned runs nullify_and_quarantine'''
