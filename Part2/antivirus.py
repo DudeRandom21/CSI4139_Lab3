@@ -7,7 +7,7 @@ class Anti_virus(object):
 	definition file, a directory to scan and call the appropriate
 	methods'''
 	def __init__(self):
-		self.offset_defs = [[1,1,1]]  #added this cause python was complaining
+		pass
 	
 	'''open the file passed and read all the definitions, then
 	save them to the self.offset_defs variable. '''
@@ -15,21 +15,20 @@ class Anti_virus(object):
 		file = open(filename, 'rb')
 		byteList = list()
 		lineList = list()
-		ofsetList = list()
+		self.offset_defs = list()
 
 		for line in file:
 			lineL = line.__len__()
 
 			byteList = list()
 
-			for x in range(0, lineL):
+			for x in range(0, lineL-2):
 				byteList.append(line[x])
 
 			lineList.append(byteList)
 
 		for objects in lineList:
-			print(objects)
-			ofsetList.append(self._convert_to_offset(objects))
+			self.offset_defs.append(self._convert_to_offset(objects))
 
 	'''gets files in dir recursively and run check_file on each,
 	then if a bad file is returned runs nullify_and_quarantine'''
@@ -112,15 +111,18 @@ class Anti_virus(object):
 		offsets = []
 
 		for byte in bytes:
-			byte = int.from_bytes(byte, "big")
+			if type(byte) != type(1):
+				byte = int.from_bytes(byte, "big")
 			offsets.append(byte-prevByte)
 			prevByte = byte
 		offsets = offsets[1:]
+		print(offsets)
 		return offsets
 
 
 def main():
 	test = Anti_virus();
+	test.read_definitions("VirusDefinitionFile.txt")
 	test.check_dir("Test Files")
 
 
